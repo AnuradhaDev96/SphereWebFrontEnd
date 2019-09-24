@@ -38,6 +38,7 @@ export default class SupplierList extends Component {
                         <th>Address</th>
                         <th>Contact No</th>
                         <th>Email</th>
+                        <th>Manage</th>
                     </tr>
                     </thead>
                     <tbody>
