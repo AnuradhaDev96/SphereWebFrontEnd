@@ -8,12 +8,12 @@ export default class OneSupplierItem extends Component {
 
     render() {
         return (
-        <tr key = {this.props.obj.requestId}>
-            <td>{this.props.obj.requestId}</td>
-            <td>{this.props.obj.totalAmount}</td>
-            <td>{this.props.obj.createdBy}</td>
-            <td>{this.props.obj.requestStatus}</td>
-            <td>{this.props.obj.requestStatus}</td>
+        <tr key = {this.props.obj.supplierId}>
+            <td>{this.props.obj.supplierId}</td>
+            <td>{this.props.obj.name}</td>
+            <td>{this.props.obj.address}</td>
+            <td>{this.props.obj.contactNo}</td>
+            <td>{this.props.obj.email}</td>
         </tr>
         );
     }

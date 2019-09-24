@@ -11,11 +11,13 @@ export default class SupplierList extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:1218/db/Supplier/getAllSups').then(response => {
-            const obj = JSON.stringify(response.data);
-            console.log(obj);
-            this.setState({suppliers: response.data});
+            if(response.data.statusCode === 200){
+                this.setState({suppliers: response.data.data});
+            } else{
+               alert(response.data.message);
+            }
         }).catch(err => {
-            alert("Sorry! There is an unexpected error." + err);
+            alert(err);
         });
     }
 
@@ -28,7 +30,6 @@ export default class SupplierList extends Component {
         return (
         <div>
             <div>
-                <h4>Suppliers</h4>
                 <table className="table">
                     <thead>
                     <tr>
