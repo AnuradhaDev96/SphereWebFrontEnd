@@ -3,8 +3,11 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import ManageSuppliers from './UIcomponents/Admin/manageSupppliers'
 import AddSuppliers from "./UIcomponents/Admin/addSupplier";
 import Home from "./UIcomponents/Admin/homeComp";
+import ManageSiteManagers from "./UIcomponents/SiteManager/ManageSiteManagers";
+import AddSiteManagers from "./UIcomponents/SiteManager/AddSiteManagers";
 import EditSuppliers from "./UIcomponents/Admin/editSupplier";
 import AddSupplierItems from "./UIcomponents/Admin/addSupplierItems";
+
 
 
 class App extends Component {
@@ -20,6 +23,9 @@ class App extends Component {
                     <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/suppliers" component={ManageSuppliers}/>
+                    <Route path="/add" component={AddSuppliers}/>
+                    <Route path="/siteManagers" component={ManageSiteManagers}/>
+                    <Route path="/addSiteManagers" component={AddSiteManagers}/>
                     <Route path="/addSupplier" component={AddSuppliers}/>
 
 
