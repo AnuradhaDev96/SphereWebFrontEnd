@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 export default class AddSuppliers extends Component {
     constructor(props) {
@@ -36,13 +37,18 @@ export default class AddSuppliers extends Component {
         };
         axios.post('http://localhost:1218/db/Supplier/addSups', data, {headers: this.headers}).then(response => {
             if (response.data.statusCode === 200) {
-                alert(response.data.message);
-                window.location.reload();
+                if(window.confirm(response.data.message +"\nDo you want to add Items of this supplier?")){
+                    // window.location.href="/addSupplierItems/"+data.supplierId;
+                    this.props.history.push('/addSupplierItems/'+data.supplierId);
+                } else {
+                    window.location.reload();
+                }
+                // this.renderModel();
             } else {
                 alert(response.data.message);
             }
         }).catch(err => {
-            alert("Worry" + err);
+            alert(err);
         });
     }
 
