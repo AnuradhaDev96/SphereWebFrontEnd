@@ -7,8 +7,7 @@ import ManageSiteManagers from "./UIcomponents/SiteManager/ManageSiteManagers";
 import AddSiteManagers from "./UIcomponents/SiteManager/AddSiteManagers";
 import EditSuppliers from "./UIcomponents/Admin/editSupplier";
 import EditSiteManagers from "./UIcomponents/SiteManager/EditSiteManagers";
-
-
+import AddSupplierItems from "./UIcomponents/Admin/addSupplierItems";
 
 class App extends Component {
     constructor(props) {
@@ -29,6 +28,7 @@ class App extends Component {
                     <Route path="/addSupplier" component={AddSuppliers}/>
                     <Route path="/editSupplier/:id" component={EditSuppliers}/>
                     <Route path="/editSiteManagers/:id" component={EditSiteManagers}/>
+                    <Route path="/addSupplierItems/:id" component={AddSupplierItems}/>
                     </Switch>
                 </BrowserRouter>
             </div>
