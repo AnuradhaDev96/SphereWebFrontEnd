@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, {Component} from 'react';
 import OneSiteManagerItem from "./RowComponents/OneSiteManagerItem";
 
-
 export default class SiteManagerList extends Component{
 
     constructor(props) {
@@ -15,7 +14,7 @@ export default class SiteManagerList extends Component{
     componentDidMount() {
         axios.get('http://localhost:1218/db/SiteManagers/getAllSiteManagers').then(response => {
             if(response.data.statusCode === 200){
-                this.setState({siteManagers: response.data});
+                this.setState({siteManagers: response.data.data});
             } else{
                 alert(response.data.message);
             }
@@ -43,6 +42,7 @@ export default class SiteManagerList extends Component{
                             <th>Contact No</th>
                             <th>Site</th>
                             <th>Approved Value</th>
+                            <th>Manage</th>
                         </tr>
                         </thead>
                         <tbody>

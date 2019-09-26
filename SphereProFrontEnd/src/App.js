@@ -6,6 +6,7 @@ import Home from "./UIcomponents/Admin/homeComp";
 import ManageSiteManagers from "./UIcomponents/SiteManager/ManageSiteManagers";
 import AddSiteManagers from "./UIcomponents/SiteManager/AddSiteManagers";
 import EditSuppliers from "./UIcomponents/Admin/editSupplier";
+import EditSiteManagers from "./UIcomponents/SiteManager/EditSiteManagers";
 
 
 
@@ -27,6 +28,7 @@ class App extends Component {
                     <Route path="/addSiteManagers" component={AddSiteManagers}/>
                     <Route path="/addSupplier" component={AddSuppliers}/>
                     <Route path="/editSupplier/:id" component={EditSuppliers}/>
+                    <Route path="/editSiteManagers/:id" component={EditSiteManagers}/>
                     </Switch>
                 </BrowserRouter>
             </div>
