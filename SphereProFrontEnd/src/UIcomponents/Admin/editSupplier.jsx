@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {Link} from "react-router-dom";
 
-export default class AddSuppliers extends Component {
+export default class EditSuppliers extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,13 +9,35 @@ export default class AddSuppliers extends Component {
             name: '',
             address:'',
             contactNo: '',
-            email: ''
+            email: '',
+            title: ''
         }
         this.onChange = this.onChange.bind(this);
         this.onSave = this.onSave.bind(this);
         this.headers = {
             "Content-Type": "application/json"
         };
+        this.loadDetails();
+    }
+
+    loadDetails() {
+        axios.get('http://localhost:1218/db/Supplier/getSupplierById/' + this.props.match.params.id).then(response => {
+            if(response.data.statusCode === 200){
+                this.setState({
+                    supplierId: response.data.data.supplierId,
+                    name: response.data.data.name,
+                    address: response.data.data.address,
+                    contactNo: response.data.data.contactNo,
+                    email: response.data.data.email,
+                    title: response.data.data.name
+                });
+
+            } else{
+                alert(response.data.message);
+            }
+        }).catch(err => {
+            alert(err);
+        });
     }
 
     onChange(e){
@@ -35,20 +56,15 @@ export default class AddSuppliers extends Component {
             contactNo: this.state.contactNo,
             email: this.state.email
         };
-        axios.post('http://localhost:1218/db/Supplier/addSups', data, {headers: this.headers}).then(response => {
+        axios.put('http://localhost:1218/db/Supplier/editSupplierById/' + this.state.supplierId, data, {headers: this.headers}).then(response => {
             if (response.data.statusCode === 200) {
-                if(window.confirm(response.data.message +"\nDo you want to add Items of this supplier?")){
-                    // window.location.href="/addSupplierItems/"+data.supplierId;
-                    this.props.history.push('/addSupplierItems/'+data.supplierId);
-                } else {
-                    window.location.reload();
-                }
-                // this.renderModel();
+                alert(response.data.message);
+                window.location.reload();
             } else {
                 alert(response.data.message);
             }
         }).catch(err => {
-            alert(err);
+            alert("Worry" + err);
         });
     }
 
@@ -58,11 +74,11 @@ export default class AddSuppliers extends Component {
             <div>
                 <div className="card">
                     <form className="border border-light p-5" onSubmit={this.onSave}>
-                        <p className="text-center h1 mb-1">Add Supplier</p>
+                        <p className="text-center h1 mb-1">{this.state.title}</p>
                         <div className="form-group">
                             <label htmlFor="supplierId" className="">Supplier Id</label>
                             <input id="supplierId" className="form-control" type="text" placeholder="SUP123"
-                                   aria-describedby="supplierIdHelp" maxLength="10" value={this.state.supplierId} onChange={this.onChange} required={true}/>
+                                   aria-describedby="supplierIdHelp" maxLength="10" value={this.state.supplierId} onChange={this.onChange} required={true} readOnly={true}/>
                             <small id="supplierIdHelp" className="form-text text-muted">Application will check whether new supplier id already exists</small>
                         </div>
                         <div className="form-group">
