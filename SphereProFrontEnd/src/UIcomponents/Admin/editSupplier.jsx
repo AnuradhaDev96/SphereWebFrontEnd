@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
+import ManageSupplierItems from "./manageSupplierItems";
 
 export default class EditSuppliers extends Component {
     constructor(props) {
@@ -14,6 +15,8 @@ export default class EditSuppliers extends Component {
         }
         this.onChange = this.onChange.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onAddItems = this.onAddItems.bind(this);
+        this.onDelete = this.onDelete.bind(this);
         this.headers = {
             "Content-Type": "application/json"
         };
@@ -68,37 +71,74 @@ export default class EditSuppliers extends Component {
         });
     }
 
+    onAddItems(e){
+        e.preventDefault();
+        this.props.history.push('/addSupplierItems/'+this.state.supplierId);
+    }
+
+    onDelete(){
+        axios.delete('http://localhost:1218/db/Supplier/deleteSups/' + this.props.match.params.id).then(response => {
+            if (response.data.statusCode === 200) {
+                alert(response.data.message);
+                this.props.history.push('/suppliers');
+            } else {
+                alert(response.data.message);
+            }
+        }).catch(err => {
+            alert(err);
+        });
+    }
+
 
     render() {
         return (
             <div>
-                <div className="card">
-                    <form className="border border-light p-5" onSubmit={this.onSave}>
-                        <p className="text-center h1 mb-1">{this.state.title}</p>
-                        <div className="form-group">
-                            <label htmlFor="supplierId" className="">Supplier Id</label>
-                            <input id="supplierId" className="form-control" type="text" placeholder="SUP123"
-                                   aria-describedby="supplierIdHelp" maxLength="10" value={this.state.supplierId} onChange={this.onChange} required={true} readOnly={true}/>
-                            <small id="supplierIdHelp" className="form-text text-muted">Application will check whether new supplier id already exists</small>
+                <div className="row">
+                    <div className="col">
+                        <div className="card">
+                            <form className="border border-light p-5" onSubmit={this.onSave}>
+                                <p className="text-center h1 mb-1">{this.state.title}</p>
+                                <div className="form-group">
+                                    <label htmlFor="supplierId" className="">Supplier Id</label>
+                                    <input id="supplierId" className="form-control small" type="text" placeholder="SUP123"
+                                           aria-describedby="supplierIdHelp" maxLength="10" value={this.state.supplierId} onChange={this.onChange} required={true} readOnly={true}/>
+                                    <small id="supplierIdHelp" className="form-text text-muted">Application will check whether new supplier id already exists</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="name">Supplier Name</label>
+                                    <input id="name" className="form-control" type="text" placeholder="ABC Hardware"
+                                           aria-describedby="nameHelp" maxLength="20" value={this.state.name} onChange={this.onChange} required={true}/>
+                                    <small id="nameHelp" className="form-text text-muted">Enter supplier's name or company name here</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="contactNo">Contact Number</label>
+                                    <input id="contactNo" className="form-control" type="text" placeholder="XXXXXXXXXX" maxLength="10"
+                                           value={this.state.contactNo} onChange={this.onChange}  required={true}/>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="email">Contact Number</label>
+                                    <input id="email" className="form-control" type="email" placeholder="user@gmail.com" maxLength="25"
+                                           value={this.state.email} onChange={this.onChange} />
+                                </div>
+                                <button type="submit" className="btn btn-primary">Save</button>
+                                <span> </span>
+                                <button type="button" className="btn btn-danger" onClick={this.onDelete}>Delete Supplier</button>
+                                <span>  </span>
+                                <button type="button" className="btn btn-secondary" onClick={this.onAddItems}>Add Items</button>
+
+                            </form>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="name">Supplier Name</label>
-                            <input id="name" className="form-control" type="text" placeholder="ABC Hardware"
-                                   aria-describedby="nameHelp" maxLength="20" value={this.state.name} onChange={this.onChange} required={true}/>
-                            <small id="nameHelp" className="form-text text-muted">Enter supplier's name or company name here</small>
+                    </div>
+                    <div className="col">
+                        <div className="card border border-light p-5">
+                            <div className="card-header">
+                                <h3 className="card-title">Items of {this.state.title}</h3>
+                            </div>
+                            <div>
+                                <ManageSupplierItems obj={{supplierId:this.props.match.params.id}}/>
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="contactNo">Contact Number</label>
-                            <input id="contactNo" className="form-control" type="text" placeholder="XXXXXXXXXX" maxLength="10"
-                                   value={this.state.contactNo} onChange={this.onChange}  required={true}/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Contact Number</label>
-                            <input id="email" className="form-control" type="email" placeholder="user@gmail.com" maxLength="25"
-                                   value={this.state.email} onChange={this.onChange} />
-                        </div>
-                        <button type="submit" className="btn btn-primary">Save</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         );

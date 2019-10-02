@@ -13,9 +13,18 @@ export default class AddSupplierItems extends Component {
         }
         this.onChange = this.onChange.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onClear = this.onClear.bind(this);
         this.headers = {
             "Content-Type": "application/json"
         };
+    }
+
+    onClear(e){
+        this.setState({
+            supItemId: '',
+            itemName: '',
+            unitPrice: ''
+        })
     }
 
     onChange(e){
@@ -74,6 +83,8 @@ export default class AddSupplierItems extends Component {
                                    value={this.state.unitPrice} onChange={this.onChange} required={true}/>
                         </div>
                         <button type="submit" className="btn btn-primary">Save</button>
+                        <span> </span>
+                        <button type="button" className="btn btn-secondary" onClick={this.onClear}>Clear</button>
                     </form>
                 </div>
             </div>

@@ -30,8 +30,8 @@ export default class SupplierList extends Component {
         return (
         <div>
             <div>
-                <table className="table">
-                    <thead>
+                <table className="table table-sm ">
+                    <thead className="thead-dark">
                     <tr>
                         <th>Supplier Id</th>
                         <th>Supplier</th>

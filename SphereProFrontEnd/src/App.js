@@ -7,6 +7,7 @@ import ManageSiteManagers from "./UIcomponents/SiteManager/ManageSiteManagers";
 import AddSiteManagers from "./UIcomponents/SiteManager/AddSiteManagers";
 import EditSuppliers from "./UIcomponents/Admin/editSupplier";
 import AddSupplierItems from "./UIcomponents/Admin/addSupplierItems";
+import AddInventoryItem from "./UIcomponents/Admin/addInventoryItem";
 
 
 
@@ -22,11 +23,26 @@ class App extends Component {
                 <BrowserRouter>
                     <Switch>
                     <Route exact path="/" component={Home}/>
+
+                    {/*Anuradha - Components*/}
                     <Route path="/suppliers" component={ManageSuppliers}/>
                     <Route path="/add" component={AddSuppliers}/>
-                    <Route path="/siteManagers" component={ManageSiteManagers}/>
+
                     <Route path="/addSiteManagers" component={AddSiteManagers}/>
                     <Route path="/addSupplier" component={AddSuppliers}/>
+                    <Route path="/editSupplier/:id" component={EditSuppliers}/>
+                    <Route path="/addSupplierItems/:id" component={AddSupplierItems}/>
+                    <Route path="/addInventoryItem" component={AddInventoryItem}/>
+
+
+
+                    {/*Umesh - Components*/}
+                    <Route path="/siteManagers" component={ManageSiteManagers}/>
+
+
+
+
+                    {/*Nethmini - Components*/}
 
 
 
@@ -34,12 +50,7 @@ class App extends Component {
 
 
 
-
-
-
-
-
-
+                    {/*Navodya - Components*/}
 
 
                     
@@ -47,8 +58,7 @@ class App extends Component {
 
 
 
-                    <Route path="/editSupplier/:id" component={EditSuppliers}/>
-                    <Route path="/addSupplierItems/:id" component={AddSupplierItems}/>
+
                     </Switch>
                 </BrowserRouter>
             </div>
