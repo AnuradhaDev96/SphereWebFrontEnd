@@ -6,10 +6,11 @@ import Home from "./UIcomponents/Admin/homeComp";
 import ManageSiteManagers from "./UIcomponents/SiteManager/ManageSiteManagers";
 import AddSiteManagers from "./UIcomponents/SiteManager/AddSiteManagers";
 import EditSuppliers from "./UIcomponents/Admin/editSupplier";
+import EditSiteManagers from "./UIcomponents/SiteManager/EditSiteManagers";
 import AddSupplierItems from "./UIcomponents/Admin/addSupplierItems";
+import updateOrder from "./UIcomponents/Accountant/updateOrder";
+import createOrder from "./UIcomponents/Accountant/createOrder";
 import AddInventoryItem from "./UIcomponents/Admin/addInventoryItem";
-
-
 
 class App extends Component {
     constructor(props) {
@@ -28,8 +29,9 @@ class App extends Component {
                     <Route path="/suppliers" component={ManageSuppliers}/>
                     <Route path="/add" component={AddSuppliers}/>
 
-                    <Route path="/addSiteManagers" component={AddSiteManagers}/>
+
                     <Route path="/addSupplier" component={AddSuppliers}/>
+                    <Route path="/addSupplierItems/:id" component={AddSupplierItems}/>
                     <Route path="/editSupplier/:id" component={EditSuppliers}/>
                     <Route path="/addSupplierItems/:id" component={AddSupplierItems}/>
                     <Route path="/addInventoryItem" component={AddInventoryItem}/>
@@ -38,23 +40,17 @@ class App extends Component {
 
                     {/*Umesh - Components*/}
                     <Route path="/siteManagers" component={ManageSiteManagers}/>
-
-
+                    <Route path="/addSiteManagers" component={AddSiteManagers}/>
+                    <Route path="/editSiteManagers/:id" component={EditSiteManagers}/>
 
 
                     {/*Nethmini - Components*/}
-
-
-
-
+                    <Route path="/order" component={createOrder}/>
+                    <Route path="/updateOrder" component={updateOrder}/>
 
 
 
                     {/*Navodya - Components*/}
-
-
-                    
-
 
 
 
