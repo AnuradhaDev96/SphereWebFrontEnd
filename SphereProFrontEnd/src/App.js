@@ -8,10 +8,11 @@ import AddSiteManagers from "./UIcomponents/SiteManager/AddSiteManagers";
 import EditSuppliers from "./UIcomponents/Admin/editSupplier";
 import EditSiteManagers from "./UIcomponents/SiteManager/EditSiteManagers";
 import AddSupplierItems from "./UIcomponents/Admin/addSupplierItems";
-import updateOrder from "./UIcomponents/Accountant/updateOrder";
+import UpdateOrder from "./UIcomponents/Accountant/UpdateOrder";
 import createOrder from "./UIcomponents/Accountant/createOrder";
 import AddInventoryItem from "./UIcomponents/Admin/addInventoryItem";
 import manageOrders from "./UIcomponents/Accountant/manageOrders";
+
 
 class App extends Component {
     constructor(props) {
@@ -47,7 +48,7 @@ class App extends Component {
 
                         {/*Nethmini - Components*/}
                         <Route path="/order" component={createOrder}/>
-                        <Route path="/updateOrder/:id" component={updateOrder}/>
+                        <Route path="/UpdateOrder/:id" component={UpdateOrder}/>
                         <Route path="/manageOrders" component={manageOrders}/>
 
 
