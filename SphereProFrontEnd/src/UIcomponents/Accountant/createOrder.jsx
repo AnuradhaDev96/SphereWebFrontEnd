@@ -5,7 +5,7 @@ import App from "../../App";
 import {Helmet} from 'react-helmet';
 import purchase from "./purchase.jpg";
 import Dropdown from 'react-dropdown';
-import { DropDownList } from '@progress/kendo-react-dropdowns';
+
 import * as ReactDOM from "dropdownlist";
 import axios from "axios";
 

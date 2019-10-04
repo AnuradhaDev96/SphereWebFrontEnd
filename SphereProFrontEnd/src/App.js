@@ -11,6 +11,11 @@ import AddSupplierItems from "./UIcomponents/Admin/addSupplierItems";
 import updateOrder from "./UIcomponents/Accountant/updateOrder";
 import createOrder from "./UIcomponents/Accountant/createOrder";
 import AddInventoryItem from "./UIcomponents/Admin/addInventoryItem";
+import ManageInventory from "./UIcomponents/Admin/manageInventory";
+import CreatePurchaseRequest from "./UIcomponents/SiteManager/createPurchaseRequest";
+import AddToCart from "./UIcomponents/SiteManager/addToCart";
+import AddSupplierToPurch from "./UIcomponents/SiteManager/addSupplierToPurch";
+import AddPurchReqItem from "./UIcomponents/SiteManager/addPurchReqItem";
 
 class App extends Component {
     constructor(props) {
@@ -35,8 +40,11 @@ class App extends Component {
                     <Route path="/editSupplier/:id" component={EditSuppliers}/>
                     <Route path="/addSupplierItems/:id" component={AddSupplierItems}/>
                     <Route path="/addInventoryItem" component={AddInventoryItem}/>
-
-
+                    <Route path="/inventory" component={ManageInventory}/>
+                    <Route path="/createPurchaseReq" component={CreatePurchaseRequest}/>
+                    <Route path="/addToCart/:id/:reqId" component={AddToCart}/>
+                    <Route path="/addSupplierToPurch/:id" component={AddSupplierToPurch}/>
+                    <Route path="/addPurchReqItem/:reqId/:supId/:reqItemId" component={AddPurchReqItem}/>
 
                     {/*Umesh - Components*/}
                     <Route path="/siteManagers" component={ManageSiteManagers}/>
