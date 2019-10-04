@@ -5,7 +5,6 @@ import App from "../../App";
 import {Helmet} from 'react-helmet';
 import purchase from "./purchase.jpg";
 import Dropdown from 'react-dropdown';
-
 import * as ReactDOM from "dropdownlist";
 import axios from "axios";
 
@@ -231,13 +230,13 @@ render() {
 
                             <td>
                                 {/*<input style={{borderColor: 'gold',borderRadius: 25}} type='password' size="40" value={this.state.status}*/}
-                                <input className="form-control"  style={{borderColor: 'gold',borderRadius: 25}} size='40' list="status" name="status" onChange={this.onChange}/>
-                                <datalist id="status">
-                                    <option value="Open"/>
-                                    <option value="Close"/>
-                                    <option value="In Progress"/>
+                                <input className="form-control" id="status" style={{borderColor: 'gold',borderRadius: 25}} size='40' value={this.state.status} placeholder="Open/Close/Progress in" onChange={this.onChange}/>
+                                {/*<datalist id="status">*/}
+                                    {/*<option value="Open"/>*/}
+                                    {/*<option value="Close"/>*/}
+                                    {/*<option value="In Progress"/>*/}
 
-                                </datalist>
+                                {/*</datalist>*/}
 
 
                             </td>
@@ -268,3 +267,4 @@ render() {
         );
     }
 }
+// list="status" name="status"
