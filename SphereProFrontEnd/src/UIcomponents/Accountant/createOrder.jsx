@@ -15,117 +15,21 @@ export default class createOrder extends React.Component {
         super(props)
         this.state={
             id:'',
-            reqId:'',
+            reqId:this.props.match.params.reqId,
             createBy:'',
             date:'',
             status:'',
         }
 
-    // handleIdChange=(event)=>{
-    //
-    //     this.setState({
-    //         id:event.target.value
-    //     })
-    // }
-    // handleReqIdChange=(event)=>{
-    //     this.setState({
-    //         reqId:event.target.value
-    //     })
-    // }
-    // handleCreateChange=(event)=>{
-    //     this.setState({
-    //         create:event.target.value
-    //     })
-    // }
-    //
-    // handleDateChange=(event)=>{
-    //     this.setState({
-    //         date:event.target.value
-    //     })
-    // }
-    // handleStatusChange=(event)=>{
-    //     this.setState({
-    //         status:event.target.value
-    //     })
-    // }
-    //
-    // componentDidMount() {
-    //     console.log('GrandChild did mount.');
-    // }
-    //
 
 
-//this checks user credintials are valid or invalid
-//     toggle=function(e){
-//         const email=this.refs.email.value;
-//         const password=this.refs.password.value;
-//
-//         if(email==='' || password===''){
-//             alert('Email or Password Empty');
-//         }
-//
-//         else {
-//             var credentials = {"email": email, "password": password};
-//             var count = false;
-
-            //calls the backend server which would route this request to the class which handles all request based on the user table
-            // fetch('http://localhost:3001/user/' + credentials.email + '/' +
-            //     credentials.password, {
-            //     method: 'GET',
-            //     headers: {'Content-Type': 'application/json'}
-            // }).then(response => {
-            //     return response.json();
-            // }).then(data => {
-            //     var user = JSON.stringify(data);
-            //     if (user != '[]') {
-            //         console.log(user);
-            //         count = true;
-            //         console.log(data);
-            //         for(var user of data){
-            //             var name=user.name;
-            //             var points=user.loyaltypoints;
-            //         }
-            //         ReactDom.render(<App name={name} points={points}
-            //                              email={email}/>, document.getElementById('root'));
-            //     }                 else {
-            //         alert("Invalid username or password");
-            //     }
-            // }).catch(err => {
-            //     alert(err);
-            // })
-
-    //     }
-    // }
-    // handleSubmit(e) {
-    //
-    //     const purchaseOrder = {
-    //         "id": e.purchaseOrder.id,
-    //         "reqId": e.purchaseOrder.reqId,
-    //         "create": e.purchaseOrder.create,
-    //         "date": e.purchaseOrder.date,
-    //         "status": e.purchaseOrder.status,
-    //
-    //     };
-    //     alert(purchaseOrder.id + "  " + purchaseOrder.reqId + "    "+purchaseOrder.create+"  "+purchaseOrder.date+" "+purchaseOrder.status+" ");
-    //
-    //     fetch('http://localhost:3000/purchaseOrder/addpurchaseOrder', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(purchaseOrder)
-    //     }).then(response => {
-    //         console.log(response)
-    //     }).catch(err => {
-    //         console.log(err);
-    //     })
-    // }
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
     this.headers = {
         "Content-Type": "application/json"
     };
 }
+
 
 onChange(e){
     this.setState({
@@ -155,116 +59,51 @@ onSave(e){
     });
 }
 
-
-
 render() {
         return (
-
             <div>
-                <div>
-                    <Helmet bodyAttributes={{style: 'background-color : #03062B'}}/>
-                    <h1 style={{color: 'gold'}} align="center"> Add Purchase Order </h1>
-                    {/*<strong>This text is strong</strong>*/}
-                    {/*<center>Add Purchase Order</center>*/}
+                <div className="card">
+                    <h1 style={{color: 'black'}} align="center"> Add Purchase Orders </h1>
+                    <form className="border border-light p-5" onSubmit={this.onSave}>
+                        <p className="text-center h1 mb-1">{this.state.id}</p>
+                        <div className="form-group">
+                            <label htmlFor="id" className="">Purchase Id</label>
+                            <input id="id" className="form-control" type="text"
+                                   aria-describedby="idHelp" maxLength="10" value={this.state.id}
+                                   onChange={this.onChange} required={true} readOnly={true}/>
+                            <small id="idHelp" className="form-text text-muted">Application will check whether new order
+                                id already exists
+                            </small>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="reqId">Request ID</label>
+                            <input id="reqId" className="form-control" type="text"
+                                   aria-describedby="reqIdHelp" maxLength="20" value={this.state.reqId}
+                                   onChange={this.onChange} required={true}/>
 
-
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="createBy">Created By</label>
+                            <input id="createBy" className="form-control" type="text"
+                                   maxLength="10"
+                                   value={this.state.createBy} onChange={this.onChange} required={true}/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="date">Date</label>
+                            <input id="date" className="form-control" type="text" maxLength="25"
+                                   value={this.state.date} onChange={this.onChange}/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="status">Status</label>
+                            <input id="status" className="form-control" type="text" maxLength="25"
+                                   value={this.state.status} onChange={this.onChange}/>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Update</button>
+                    </form>
                 </div>
-                <br></br>
-                <img src={purchase} alt="2" align="left" hspace="50"
-                     height={500}
-                     wdith={1000}
-                />
-
-                <form onSubmit={this.onSave}>
-                    <table align="center" cellspacing="1000">
-                        <td align="position"valign="position"></td>
-                        <tr>
-                            {/*<div className="form-group">*/}
-                                {/*<label htmlFor="supplierId" className="">Supplier Id</label>*/}
-                                {/*<input id="supplierId" className="form-control" type="text" placeholder="SUP123"*/}
-                                       {/*aria-describedby="supplierIdHelp" maxLength="10" value={this.state.supplierId} onChange={this.onChange} required={true}/>*/}
-
-                            {/*</div>*/}
-                            <div className="form-group">
-                                <td width="40%" style={{color: 'gold'}} >  Order ID </td>
-
-                                <td>
-                                <input  aria-describedby="supplierIdHelp" className="form-control" id="id" borderBottomWidth="1000" style={{borderColor: 'gold',borderRadius: 25}} type='text' size="40" value={this.state.id}
-                                       // onChange={this.handleIdChange}
-                                         onChange={this.onChange} required={true} />
-                                    <small id="supplierIdHelp" className="form-text text-muted">Application will check whether new supplier id already exists</small>
-                                </td>
-                            </div>
-
-                        </tr>
-
-                        <br></br>
-                        <tr>
-                            <div className="form-group">
-                                <td style={{color: 'gold'}}>Request ID </td>
-                                <td>
-                                <input className="form-control" id="reqId"style={{borderColor: 'gold',borderRadius: 25}} type='text' size="40" value={this.state.reqId}
-                                       // onChange={this.handleReqIdChange}
-                                       onChange={this.onChange}/>
-                                </td>
-                            </div>
-                        </tr>
-
-                        <br></br>
-                        <tr>
-                            <div className="form-group">
-                            <td style={{color: 'gold'}}>Create By</td>
-                            <td>
-                                <input className="form-control" id="createBy" style={{borderColor: 'gold',borderRadius: 25}} type='text' size="40" value={this.state.createBy}
-                                       // onChange={this.handleCreateChange}
-                                       onChange={this.onChange}/>
-                            </td>
-                            </div>
-                        </tr>
-
-                        <br></br>
-
-                        <tr>
-                            <div className="form-group">
-                            <td style={{color: 'gold'}}>Order Status</td>
-
-                            <td>
-                                {/*<input style={{borderColor: 'gold',borderRadius: 25}} type='password' size="40" value={this.state.status}*/}
-                                <input className="form-control" id="status" style={{borderColor: 'gold',borderRadius: 25}} size='40' value={this.state.status} placeholder="Open/Close/Progress in" onChange={this.onChange}/>
-                                {/*<datalist id="status">*/}
-                                    {/*<option value="Open"/>*/}
-                                    {/*<option value="Close"/>*/}
-                                    {/*<option value="In Progress"/>*/}
-
-                                {/*</datalist>*/}
-
-
-                            </td>
-                            </div>
-                        </tr>
-                        <br></br>
-                        <tr>
-                            <div className="form-group">
-                            <td style={{color: 'gold'}}>Delivery Date</td>
-                            <td>
-                                <input className="form-control" id="date" size="100" style={{borderColor: 'gold',borderRadius:25}} type='date' value={this.state.date}
-                                       // onChange={this.handleDateChange}
-                                       onChange={this.onChange}/>
-                            </td>
-                            </div>
-                        </tr>
-                        <br></br>
-
-                        <button     style={{borderRadius:'50',backgroundColor:'gold',size:'50'}} type="submit" className="btn btn-primary" > Add Order</button>
-
-
-                    </table>
-
-
-                </form>
-
             </div>
         );
     }
 }
+
 // list="status" name="status"
