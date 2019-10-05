@@ -65,12 +65,12 @@ render() {
                 <div className="card">
                     <h1 style={{color: 'black'}} align="center"> Add Purchase Orders </h1>
                     <form className="border border-light p-5" onSubmit={this.onSave}>
-                        <p className="text-center h1 mb-1">{this.state.id}</p>
+
                         <div className="form-group">
                             <label htmlFor="id" className="">Purchase Id</label>
                             <input id="id" className="form-control" type="text"
                                    aria-describedby="idHelp" maxLength="10" value={this.state.id}
-                                   onChange={this.onChange} required={true} readOnly={true}/>
+                                   onChange={this.onChange} required={true} />
                             <small id="idHelp" className="form-text text-muted">Application will check whether new order
                                 id already exists
                             </small>
@@ -90,15 +90,15 @@ render() {
                         </div>
                         <div className="form-group">
                             <label htmlFor="date">Date</label>
-                            <input id="date" className="form-control" type="text" maxLength="25"
+                            <input id="date" className="form-control" type="date" maxLength="25"
                                    value={this.state.date} onChange={this.onChange}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="status">Status</label>
                             <input id="status" className="form-control" type="text" maxLength="25"
-                                   value={this.state.status} onChange={this.onChange}/>
+                                   value={this.state.status} onChange={this.onChange} placeholder="Open,Close,In Progress"/>
                         </div>
-                        <button type="submit" className="btn btn-primary">Update</button>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
