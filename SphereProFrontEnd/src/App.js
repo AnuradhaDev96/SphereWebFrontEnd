@@ -17,6 +17,14 @@ import AddToCart from "./UIcomponents/SiteManager/addToCart";
 import AddSupplierToPurch from "./UIcomponents/SiteManager/addSupplierToPurch";
 import AddPurchReqItem from "./UIcomponents/SiteManager/addPurchReqItem";
 import manageOrders from "./UIcomponents/Accountant/manageOrders";
+import UserLoginForm from "./UIcomponents/UserLogin/userLoginForm";
+import AdminHome from "./UIcomponents/Admin/adminHome";
+import AccountantHome from "./UIcomponents/Accountant/accountantHome";
+import ProjectManagerHome from "./UIcomponents/ProjectManager/projectManagerHome";
+import SiteManagerHome from "./UIcomponents/SiteManager/siteManagerHome";
+import SearchPayment from "./UIcomponents/Accountant/searchPayment";
+import ManagePayments from "./UIcomponents/Accountant/managePayment";
+import AddPayments from "./UIcomponents/Accountant/addPayments";
 
 class App extends Component {
     constructor(props) {
@@ -46,6 +54,11 @@ class App extends Component {
                         <Route path="/addToCart/:id/:reqId" component={AddToCart}/>
                         <Route path="/addSupplierToPurch/:id" component={AddSupplierToPurch}/>
                         <Route path="/addPurchReqItem/:reqId/:supId/:reqItemId" component={AddPurchReqItem}/>
+                        <Route path="/login" component={UserLoginForm}/>
+                        <Route path="/adminHome" component={AdminHome}/>
+                        <Route path="/accountantHome" component={AccountantHome}/>
+                        <Route path="/projectManagerHome" component={ProjectManagerHome}/>
+                        <Route path="/siteManagerHome" component={SiteManagerHome}/>
 
 
                         {/*Umesh - Components*/}
@@ -63,7 +76,9 @@ class App extends Component {
 
 
                         {/*Navodya - Components*/}
-
+                        <Route path="/addPayments" component={AddPayments}/>
+                        <Route path="/payments" component={ManagePayments}/>
+                        <Route path="/searchPayment/:id" component={SearchPayment}/>
 
 
 

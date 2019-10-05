@@ -73,9 +73,15 @@ export default class AddToCart extends Component {
                     <h5 className="col">Purchase Request Id <span className="badge badge-primary">{this.props.match.params.reqId}</span></h5>
                     <h5 className="col">Total <span className="badge badge-warning">{this.state.totalAmount}</span></h5>
                     <h5 className="col">Status <span className="badge badge-dark">{this.state.requestStatus}</span></h5>
-                    <button type="button col" onClick={this.placeOrder} className="btn btn-info">Place Order</button>
+                    <button type="button col" onClick={this.placeOrder} disabled={this.state.requestStatus !== 'NEW'} className="btn btn-info">Place Order</button>
+
+                    <Link to={"/createPurchaseReq"}  >
+                        <span> </span>
+                        <button className="col btn btn-secondary" disabled={this.state.requestStatus === 'NEW'}>Create Purchase Request</button>
+                    </Link>
                         </div>
                     </div>
+
                     <div className="row">
                         <div className="col">
                             <div className="card">
