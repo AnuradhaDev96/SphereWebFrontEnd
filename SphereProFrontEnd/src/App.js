@@ -25,6 +25,9 @@ import SiteManagerHome from "./UIcomponents/SiteManager/siteManagerHome";
 import SearchPayment from "./UIcomponents/Accountant/searchPayment";
 import ManagePayments from "./UIcomponents/Accountant/managePayment";
 import AddPayments from "./UIcomponents/Accountant/addPayments";
+import ManageRequest from "./UIcomponents/ProjectManager/ManageRequest";
+import ApproveRequestList from "./UIcomponents/ProjectManager/ApproveRequestList";
+import DisplayRequestList from "./UIcomponents/Accountant/DisplayRequestList";
 
 class App extends Component {
     constructor(props) {
@@ -68,9 +71,12 @@ class App extends Component {
 
 
                         {/*Nethmini - Components*/}
-                        <Route path="/order" component={createOrder}/>
+                        <Route path="/order/:reqId" component={createOrder}/>
                         <Route path="/UpdateOrder/:id" component={UpdateOrder}/>
                         <Route path="/manageOrders" component={manageOrders}/>
+                        <Route path="/ManageRequest" component={ManageRequest}/>
+                        <Route path="/ApproveRequestList/:reqId" component={ApproveRequestList}/>
+                        <Route path="/DisplayRequestList" component={DisplayRequestList}/>
 
 
 
