@@ -17,6 +17,8 @@ import AddToCart from "./UIcomponents/SiteManager/addToCart";
 import AddSupplierToPurch from "./UIcomponents/SiteManager/addSupplierToPurch";
 import AddPurchReqItem from "./UIcomponents/SiteManager/addPurchReqItem";
 import manageOrders from "./UIcomponents/Accountant/manageOrders";
+import ManageRequest from "./UIcomponents/ProjectManager/ManageRequest";
+import ApproveRequestList from "./UIcomponents/ProjectManager/ApproveRequestList";
 
 class App extends Component {
     constructor(props) {
@@ -58,6 +60,8 @@ class App extends Component {
                         <Route path="/order" component={createOrder}/>
                         <Route path="/UpdateOrder/:id" component={UpdateOrder}/>
                         <Route path="/manageOrders" component={manageOrders}/>
+                        <Route path="/ManageRequest" component={ManageRequest}/>
+                        <Route path="/ApproveRequestList/:reqId" component={ApproveRequestList}/>
 
 
 
