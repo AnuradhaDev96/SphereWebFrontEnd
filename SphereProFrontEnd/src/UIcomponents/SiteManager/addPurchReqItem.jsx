@@ -88,24 +88,24 @@ export default class AddPurchReqItem extends Component {
     render() {
         return (
             <div>
-                <div className="card border-light p-5">
-                    <h1 className="text-center">Create Purchase Request</h1>
-                    <h4 className="text-center">Step 4 - Add to Cart</h4>
+                <div className="card bg-transparent p-5">
+                    <h1 className="text-center text-white">Create Purchase Request</h1>
+                    <h4 className="text-center text-white">Step 4 - Add to Cart</h4>
 
-                    <h5>Purchase Request Id <span className="badge badge-primary">{this.state.requestId}</span></h5>
-                    <h5>Supplier Id <span className="badge badge-primary">{this.state.supplierId}</span></h5>
-                    <h5>Item Id<span className="badge badge-primary">{this.state.requestItemId}</span></h5>
-                    <h5>Item Name <span className="badge badge-primary">{this.state.itemName}</span></h5>
-                    <h5>Unit Price <span className="badge badge-primary">{this.state.unitPrice}</span></h5>
-                    <h5>Sub Total <span className="badge badge-warning">{this.state.subTotal}</span></h5>
-                    <form className="border border-light" onSubmit={this.onSave}>
+                    <h5 className="text-white">Purchase Request Id <span className="badge badge-info">{this.state.requestId}</span></h5>
+                    <h5 className="text-white">Supplier Id <span className="badge badge-info">{this.state.supplierId}</span></h5>
+                    <h5 className="text-white">Item Id <span className="badge badge-info">{this.state.requestItemId}</span></h5>
+                    <h5 className="text-white">Item Name <span className="badge badge-info">{this.state.itemName}</span></h5>
+                    <h5 className="text-white">Unit Price <span className="badge badge-info">{this.state.unitPrice}</span></h5>
+                    <h5 className="text-white">Sub Total <span className="badge badge-warning">{this.state.subTotal}</span></h5>
+                    <form onSubmit={this.onSave}>
                         <div className="form-group">
                             <label htmlFor="amount" className="">Add Amount</label>
                             <input id="amount" className="form-control" type="number"
                                    value={this.state.amount} onChange={this.onChange} required={true}/>
                         </div>
-                        <button type="submit" className="btn btn-primary">Add to Cart</button>
-                        <button type="button" onClick={this.calcSubTotal} className="btn btn-primary">Calculate Sub Total</button>
+                        <button type="submit" className="btn btn-outline-info">Add to Cart</button><span>  </span>
+                        <button type="button" onClick={this.calcSubTotal} className="btn btn-outline-warning">Calculate Sub Total</button>
 
                     </form>
                     {/*<ViewSuppliers/>*/}

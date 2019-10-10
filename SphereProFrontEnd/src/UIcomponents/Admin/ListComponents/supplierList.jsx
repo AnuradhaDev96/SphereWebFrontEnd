@@ -29,7 +29,7 @@ export default class SupplierList extends Component {
     render() {
         return (
         <div>
-            <div>
+            <div className="p-3">
                 <table className="table table-sm ">
                     <thead className="thead-dark">
                     <tr>
@@ -41,7 +41,7 @@ export default class SupplierList extends Component {
                         <th>Manage</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-light">
                     {this.listTableRow()}
                     </tbody>
                 </table>

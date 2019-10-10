@@ -10,7 +10,7 @@ export default class ManageSiteManagers extends Component {
         return (
             <div>
                 <div>
-                    <h1 className="text-center">Site Managers</h1>
+                    <h1 className="text-center p-5 text-white">Site Managers</h1>
                     <SiteManagerList/>
                 </div>
             </div>

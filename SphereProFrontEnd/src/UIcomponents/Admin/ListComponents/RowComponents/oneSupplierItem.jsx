@@ -31,6 +31,7 @@ export default class OneSupplierItem extends Component {
             <td>{this.props.obj.email}</td>
             <td>
                 <Link to={"/editSupplier/" + this.props.obj.supplierId} className="btn btn-success btn-sm" >View</Link>
+                <span> </span>
                 <button onClick={this.delete} className="btn btn-danger btn-sm">Delete</button>
             </td>
         </tr>

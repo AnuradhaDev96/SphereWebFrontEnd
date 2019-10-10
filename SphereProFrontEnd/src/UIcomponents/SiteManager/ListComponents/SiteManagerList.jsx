@@ -32,9 +32,9 @@ export default class SiteManagerList extends Component{
     render() {
         return (
             <div>
-                <div>
+                <div className="p-3">
                     <table className="table">
-                        <thead>
+                        <thead className="thead-dark">
                         <tr>
                             <th>SiteManager Id</th>
                             <th>SiteManagers</th>
@@ -45,7 +45,7 @@ export default class SiteManagerList extends Component{
                             <th>Manage</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="bg-light">
                         {this.listTableRow()}
                         </tbody>
                     </table>

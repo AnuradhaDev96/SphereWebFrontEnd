@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import OnePaymentsItem from './RowComponents/onePaymentsItem';
 import {Link} from "react-router-dom";
 
-export default class PaymentList extends Component {
+export default class ManageDeliveries extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,21 +16,21 @@ export default class PaymentList extends Component {
         this.delete = this.delete.bind(this);
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:1218/db/Payment/getAllPays').then(response => {
-            if(response.data.statusCode === 200){
-                this.setState({payments: response.data.data});
-            } else{
-                alert(response.data.message);
-            }
-        }).catch(err => {
-            alert(err);
-        });
-    }
+    // componentDidMount() {
+    //     axios.get('http://localhost:1218/db/Payment/getAllPays').then(response => {
+    //         if(response.data.statusCode === 200){
+    //             this.setState({payments: response.data.data});
+    //         } else{
+    //             alert(response.data.message);
+    //         }
+    //     }).catch(err => {
+    //         alert(err);
+    //     });
+    // }
 
     search(e) {
         e.preventDefault();
-        axios.get('http://localhost:1218/db/Payment/searchPayById/' + this.state.searchParam).then(response => {
+        axios.get('http://localhost:1218/db/order/getOrderById/' + this.state.searchParam).then(response => {
             if(response.data.statusCode === 200){
                 if(response.data.data.length === 0){
                     alert(this.state.searchParam + " cannot be found");
@@ -118,34 +118,23 @@ export default class PaymentList extends Component {
 
     render() {
         return (
-                <div className="p-3">
-                    <input id="searchParam" maxLength="10" type="text" placeholder="Search.."  value={this.state.searchParam} onChange={this.onChange}/>
-                    <span> </span>
-                    <button type="button" onClick={this.search} className="btn btn-outline-primary">Search</button>
-                    <span> </span>
-                    <button type="button" onClick={this.reload} className="btn btn-outline-success">View All</button>
-                    <span> </span>
-                    <button type="button" onClick={this.delete} className="btn btn-outline-secondary">View Deleted</button>
-                    <br/><br/><br/>
+            <div className="p-3">
+                <input id="searchParam" maxLength="10" type="text" placeholder="Search.."  value={this.state.searchParam} onChange={this.onChange}/>
+                <span> </span>
+                <button type="button" onClick={this.search} className="btn btn-outline-primary">Search</button>
+                <span> </span>
+                <button type="button" onClick={this.reload} className="btn btn-outline-success">Set Order Recieved</button>
+                <span> </span>
+                <button type="button" onClick={this.delete} className="btn btn-outline-secondary">Set Order In Progress</button>
+                <br/><br/><br/>
 
-
-                    <table className="table">
-                        <thead className="thead-dark">
-                        <tr>
-                            <th>Payment Id</th>
-                            <th>Purchase Order ID</th>
-                            <th>Amount</th>
-                            <th>Paid On</th>
-                            <th>Paid By</th>
-                            <th>Status</th>
-                            <th>Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody className="bg-light">
-                        {this.listTableRow()}
-                        </tbody>
-                    </table>
-                </div>
+                <h5 className="text-white">Order Id <span className="badge badge-info">{this.state.requestId}</span></h5>
+                <h5 className="text-white">Purchase Request Id <span className="badge badge-info">{this.state.supplierId}</span></h5>
+                <h5 className="text-white">Item Id <span className="badge badge-info">{this.state.requestItemId}</span></h5>
+                <h5 className="text-white">Item Name <span className="badge badge-info">{this.state.itemName}</span></h5>
+                <h5 className="text-white">Unit Price <span className="badge badge-info">{this.state.unitPrice}</span></h5>
+                <h5 className="text-white">Sub Total <span className="badge badge-warning">{this.state.subTotal}</span></h5>
+            </div>
         );
     }
 }

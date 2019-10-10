@@ -3,13 +3,16 @@
 import React, {Component} from 'react';
 import ViewSuppliers from "./ListComponents/viewSuppliers"
 import axios from "axios";
+import LoggedUserService from "../UserLogin/LoggedUserService";
+import NavigationBar from "./siteManagerHome";
 
 export default class CreatePurchaseRequest extends Component {
     constructor(props) {
         super(props);
+        this.loggedUserService = new LoggedUserService();
         this.state = {
             requestId: '',
-            createdBy: '',
+            createdBy: this.loggedUserService.username,
             deliverDate:''
         }
         this.onChange = this.onChange.bind(this);
@@ -52,30 +55,30 @@ export default class CreatePurchaseRequest extends Component {
     render() {
         return (
             <div>
-                <div className="card">
-                    <h1 className="text-center">Create Purchase Request</h1>
-                    <h4 className="text-center">Step 1 - Initial Details</h4>
+                <div className="card bg-transparent">
+                    <h1 className="text-center text-white">Create Purchase Request</h1>
+                    <h4 className="text-center text-white">Step 1 - Initial Details</h4>
 
                     <form className="border border-light p-5" onSubmit={this.onSave}>
                         <div className="form-group">
-                            <label htmlFor="supplierId" className="">Purchase Request Id</label>
+                            <label htmlFor="supplierId" className="text-white">Purchase Request Id</label>
                             <input id="requestId" className="form-control" type="text"
                                    aria-describedby="requestIdHelp" maxLength="10" value={this.state.requestId} onChange={this.onChange} required={true}/>
-                            <small id="requestIdHelp" className="form-text text-muted">Application will check whether new request id already exists</small>
+                            <small id="requestIdHelp" className="form-text text-muted text-white">Application will check whether new request id already exists</small>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="createdBy">Created By</label>
+                            <label htmlFor="createdBy" className="text-white">Created By</label>
                             <input id="createdBy" className="form-control" type="text" placeholder="Site Manager Id"
-                                   aria-describedby="nameHelp" maxLength="10" value={this.state.createdBy} onChange={this.onChange} required={true}/>
+                                   aria-describedby="nameHelp" maxLength="10" value={this.state.createdBy} onChange={this.onChange} readOnly={true} required={true}/>
                             <small id="createdByHelp" className="form-text text-muted">Enter supplier Id here</small>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="deliverDate">Deliver Date</label>
+                            <label htmlFor="deliverDate" className="text-white">Deliver Date</label>
                             <input id="deliverDate" className="form-control" type="date"
                                    aria-describedby="deliverDateHelp" value={this.state.deliverDate} onChange={this.onChange} required={true}/>
                             <small id="deliverDateHelp" className="form-text text-muted">Enter the delivery date of order</small>
                         </div>
-                        <button type="submit" className="btn btn-primary">Save & Continue</button>
+                        <button type="submit" className="btn btn-info">Save & Continue</button>
                     </form>
                     {/*<ViewSuppliers/>*/}
                 </div>

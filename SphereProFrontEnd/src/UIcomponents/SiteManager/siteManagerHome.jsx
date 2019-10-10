@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
 import LoggedUserService from "../UserLogin/LoggedUserService";
+import NavigationBar from "../UserLogin/navigationBar";
 
 export default class SiteManagerHome extends Component {
     constructor(props) {
@@ -49,29 +50,30 @@ export default class SiteManagerHome extends Component {
     render() {
         return (
             <div>
-                <div className="card">
-                    <h2 className="text-center h1 mb-1">Sphere Procurement Management System</h2>
-                    <h3 className="text-center">Site Manager Home Page</h3>
+                <NavigationBar/>
+                <div className="card bg-transparent">
+                    <h2 className="text-center h1 mb-1 text-white">Sphere Procurement Management System</h2>
+                    <h3 className="text-center text-white">Site Manager Home Page</h3>
                     <p>{this.state.logUser}</p>
-                    <div className="card">
-                        <div className="row">
-                            <div className="col">
+                    <div className="card bg-transparent p-5">
+                        <div className="row p-3">
+                            <div className="col p-1">
                                 <Link to={"/createPurchaseReq"}>
-                                <button type="submit" className="btn btn-primary">Create Purchase Request</button>
+                                <button type="submit" className="btn btn-outline-info btn-lg">Create Purchase Request</button>
                                 </Link>
                             </div>
-                            <div className="col">
+                            <div className="col p-1">
                                 <Link to={"/inventory"}>
-                                <button type="submit" className="btn btn-primary">View Inventory</button>
+                                <button type="submit" className="btn btn-outline-info btn-lg">View Inventory</button>
                                 </Link>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col">
-                                <button type="submit" className="btn btn-primary">View Purchase Requests</button>
+                        <div className="row p-3">
+                            <div className="col p-1">
+                                <button type="submit" className="btn btn-outline-info btn-lg">View Purchase Requests</button>
                             </div>
-                            <div className="col">
-                                <button type="submit" className="btn btn-primary">Manage Deliveries</button>
+                            <div className="col p-1">
+                                <button type="submit" className="btn btn-outline-info btn-lg">Manage Deliveries</button>
                             </div>
                         </div>
 

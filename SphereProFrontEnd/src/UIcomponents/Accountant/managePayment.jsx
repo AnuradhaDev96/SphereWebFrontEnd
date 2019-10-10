@@ -10,7 +10,7 @@ export default class ManagePayments extends Component {
         return (
             <div>
                 <div>
-                    <h1>Payments</h1>
+                    <h1 className="text-white text-center p-3">Payments</h1>
                     <PaymentList/>
                 </div>
             </div>

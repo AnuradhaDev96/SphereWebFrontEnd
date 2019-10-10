@@ -39,7 +39,7 @@ export default class OneSupItemRow extends Component {
                 <td>{this.props.obj.unitPrice}</td>
                 <td>
                     <Link to={"/addPurchReqItem/" + this.props.requestId + "/" + this.props.obj.supplierId + "/" + this.props.obj.supItemId}  >
-                        <button className="btn btn-success btn-sm" disabled={this.props.parentStatus !== 'NEW'}>Add To Cart</button>
+                        <button className="btn btn-outline-success btn-sm" disabled={this.props.parentStatus !== 'NEW'}>Add To Cart</button>
                     </Link>
 
                 </td>

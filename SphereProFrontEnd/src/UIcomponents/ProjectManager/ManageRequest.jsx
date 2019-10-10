@@ -10,7 +10,7 @@ export default class ManageRequest extends Component {
         return (
             <div>
                 <div>
-                    <h1>Purchase Requests</h1>
+                    <h1 className="text-white text-center p-5">Purchase Requests</h1>
                     <RequestList/>
                 </div>
             </div>

@@ -28,8 +28,8 @@ export default class LoggedUserService {
         }
     }
 
-    get Type(){
-        return (localStorage.getItem('Type'))
+    get Role(){
+        return (localStorage.getItem('Role'))
     }
 
     get isLoggedIn() {
@@ -48,7 +48,7 @@ export default class LoggedUserService {
         localStorage.removeItem('LoggedInStatus');
         localStorage.removeItem('Username');
         // localStorage.removeItem('tokenData');
-        localStorage.removeItem('Type');
+        localStorage.removeItem('Role');
         window.location.href = "/login"
     }
 }

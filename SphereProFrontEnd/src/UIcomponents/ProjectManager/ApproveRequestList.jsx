@@ -76,19 +76,19 @@ export default class ApproveRequestList extends Component {
     render() {
         return (
             <div>
-                <div className="card">
+                <div className="card bg-transparent p-3">
 
-                    <h1 className="text-center">Create Purchase Request</h1>
-                    <h4 className="text-center">Step 3 - Add Items to Purchase Request</h4>
-                    <div className="card p-3">
+                    <h1 className="text-center text-white">Create Purchase Request</h1>
+                    <h4 className="text-center text-white">Step 3 - Add Items to Purchase Request</h4>
+                    <div className="card p-3 bg-transparent">
                         <div className="row">
-                            <h5 className="col">Purchase Request Id <span className="badge badge-primary">{this.props.match.params.reqId}</span></h5>
-                            <h5 className="col">Total <span className="badge badge-warning">{this.state.totalAmount}</span></h5>
-                            <h5 className="col">Status <span className="badge badge-dark">{this.state.requestStatus}</span></h5>
+                            <h5 className="col text-white">Purchase Request Id <span className="badge badge-primary">{this.props.match.params.reqId}</span></h5>
+                            <h5 className="col text-white">Total <span className="badge badge-warning">{this.state.totalAmount}</span></h5>
+                            <h5 className="col text-white">Status <span className="badge badge-dark">{this.state.requestStatus}</span></h5>
 
-                            <button onClick={this.onSave}  disabled={this.state.requestStatus !== 'NEED APPROVAL'} className="btn btn-danger">Approve</button>
-
-                            <button onClick={this.delete}  className="btn btn-danger">Decline</button>
+                            <button onClick={this.onSave}  disabled={this.state.requestStatus !== 'NEED APPROVAL'} className="btn btn-outline-success">Approve</button>
+                            <span> </span>
+                            <button onClick={this.delete}  className="btn btn-outline-danger">Decline</button>
                         </div>
                     </div>
                     <div className="row">

@@ -60,25 +60,25 @@ export default class AddInventoryItem extends Component {
     render() {
         return (
             <div>
-                <div className="card">
-                    <form className="border border-light p-5" onSubmit={this.onSave}>
-                        <p className="text-center h1 mb-1">Add Items to Inventory</p>
+                <div className="card bg-transparent">
+                    <form className="p-5" onSubmit={this.onSave}>
+                        <p className="text-center h1 mb-1 text-white">Add Items to Inventory</p>
                         <div className="row">
                             <div className="col">
                         <div className="form-group">
-                            <label htmlFor="itemId" className="">Item Id</label>
+                            <label htmlFor="itemId" className="text-white">Item Id</label>
                             <input id="itemId" className="form-control" type="text" placeholder="INT123"
                                    aria-describedby="itemIdHelp" maxLength="10" value={this.state.itemId} onChange={this.onChange} required={true}/>
                             <small id="itemIdHelp" className="form-text text-muted">Application will check whether new supplier id already exists</small>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="name">Item Name</label>
+                            <label htmlFor="name" className="text-white">Item Name</label>
                             <input id="name" className="form-control" type="text" placeholder="Cement"
                                    aria-describedby="nameHelp" maxLength="20" value={this.state.name} onChange={this.onChange} required={true}/>
                             <small id="nameHelp" className="form-text text-muted">Enter supplier's name or company name here</small>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="category">Category</label>
+                            <label htmlFor="category" className="text-white">Category</label>
                             <select className="custom-select" id="category" value={this.state.category} onChange={this.onChange} required={true}>
                                 <option selected={true} value="tools">Tools</option>
                                 <option value="electric">Electric Appliances</option>
@@ -89,19 +89,19 @@ export default class AddInventoryItem extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="brand">Brand Name</label>
+                            <label htmlFor="brand" className="text-white">Brand Name</label>
                             <input id="brand" className="form-control" type="text"  value={this.state.brand}
                                    onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="description">Item Description</label>
+                            <label htmlFor="description" className="text-white">Item Description</label>
                             <input id="description" className="form-control" type="text" value={this.state.description}
                                    onChange={this.onChange}/>
                         </div>
                             </div>
                             <div className="col">
                         <div className="form-group">
-                            <label htmlFor="source">Source of Item</label>
+                            <label htmlFor="source" className="text-white">Source of Item</label>
                             <select className="custom-select" id="source" value={this.state.source} onChange={this.onChange} required={true}>
                                 <option selected={true} value="delivers">From Delivery</option>
                                 <option value="donations">From Donations</option>
@@ -109,25 +109,28 @@ export default class AddInventoryItem extends Component {
                             </select>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="maxStock">Maximum Stock</label>
+                            <label htmlFor="maxStock" className="text-white">Maximum Stock</label>
                             <input id="maxStock" className="form-control" type="number" value={this.state.maxStock}
                                    onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="currentStock">Maximum Stock</label>
+                            <label htmlFor="currentStock" className="text-white">Current Stock</label>
                             <input id="currentStock" className="form-control" type="number" value={this.state.currentStock}
                                    onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="unit">Measuring Unit</label>
+                            <label htmlFor="unit" className="text-white">Measuring Unit</label>
                             <input id="unit" className="form-control" type="text" value={this.state.unit}
                                    onChange={this.onChange} required={true}/>
                         </div>
-                        <select className="custom-select" id="status" value={this.state.status} onChange={this.onChange} required={true}>
-                            <option selected={true} value="active">Active</option>
-                            <option value="block">Block</option>
-                        </select>
-                        <button type="submit" className="btn btn-primary">Save</button>
+                        <div className="form-group">
+                            <label htmlFor="unit" className="text-white">Status</label>
+                            <select className="custom-select" id="status" value={this.state.status} onChange={this.onChange} required={true}>
+                                <option selected={true} value="active">Active</option>
+                                <option value="block">Block</option>
+                            </select>
+                        </div>
+                        <button type="submit" className="btn btn-outline-primary">Save</button>
                             </div>
                         </div>
                     </form>

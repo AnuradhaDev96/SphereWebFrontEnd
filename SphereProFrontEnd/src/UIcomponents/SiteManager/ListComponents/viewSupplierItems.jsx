@@ -39,13 +39,13 @@ export default class ViewSupplierItems extends Component {
                     <h4 className="text-center">Items of Supplier</h4>
                     <span className="badge badge-warning">{this.state.isSupplierItemsFound}</span>
                     <table className="table">
-                        <thead>
+                        <thead className="thead-dark">
                         <tr>
                             <th>Supplier Item Id</th>
                             <th>Supplier Id</th>
                             <th>Item Name</th>
                             <th>Unit Price</th>
-                            <th className="col-sm-12">Action</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>

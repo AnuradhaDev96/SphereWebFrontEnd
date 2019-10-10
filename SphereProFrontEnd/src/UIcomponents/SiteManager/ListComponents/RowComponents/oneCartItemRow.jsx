@@ -31,7 +31,7 @@ export default class OneCartItemRow extends Component {
                 <td>{this.props.obj.subTotal}</td>
                 <td>{this.props.obj.deliveryStatus}</td>
                 <td>
-                    <button onClick={this.delete} disabled={this.props.parentStatus !== 'NEW'} className="btn btn-warning btn-sm">Remove from Cart</button>
+                    <button onClick={this.delete} disabled={this.props.parentStatus !== 'NEW'} className="btn btn-outline-warning btn-sm">Remove from Cart</button>
                 </td>
             </tr>
         );

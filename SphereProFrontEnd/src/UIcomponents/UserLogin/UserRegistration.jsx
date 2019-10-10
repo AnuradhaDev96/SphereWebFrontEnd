@@ -50,36 +50,40 @@ export default class UserRegistration extends Component {
     render() {
         return (
             <div>
-                <div className="card">
+                <div className="card bg-transparent" >
                     <form className="border border-light p-5" onSubmit={this.onSave}>
-                        <h2 className="text-center h1 mb-1">Sphere Procurement Management System</h2>
-                        <h3 className="text-center">Regiter User</h3>
+                        <h2 className="text-center h1 mb-1 text-white">Sphere Procurement Management System</h2>
+                        <h3 className="text-center text-white">Register User</h3>
                         <div className="form-group">
-                            <label htmlFor="id" className="">User Id</label>
+                            <label htmlFor="id" className="text-white">User Id</label>
                             <input id="id" className="form-control" type="number"
                                    maxLength="10" value={this.state.id} onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="user_name">Username</label>
+                            <label htmlFor="user_name" className="text-white">Username</label>
                             <input id="user_name" className="form-control" type="text"
                                    value={this.state.user_name} onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="pass_word">Password</label>
+                            <label htmlFor="pass_word" className="text-white">Password</label>
                             <input id="pass_word" className="form-control" type="text"
                                    value={this.state.pass_word} onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="contact_no">Contact No</label>
-                            <input id="contact_no" className="form-control" type="text"
+                            <label htmlFor="contact_no" className="text-white">Contact No</label>
+                            <input id="contact_no" className="form-control" type="text" maxLength="10"
                                    value={this.state.contact_no} onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="contact_no">Contact No</label>
-                            <input id="contact_no" className="form-control" type="text"
-                                   value={this.state.contact_no} onChange={this.onChange} required={true}/>
+                            <label htmlFor="category" className="text-white">Select User Role</label>
+                            <select className="custom-select" id="role" value={this.state.role} onChange={this.onChange} required={true}>
+                                <option selected={true} value="ADMIN">Admin</option>
+                                <option value="PROJECTMNG">Project Manager</option>
+                                <option value="SITEMNG">Site Manager</option>
+                                <option value="ACCOUNTANT">Accountant</option>
+                            </select>
                         </div>
-                        <button type="submit" className="btn btn-primary">Register</button>
+                        <button type="submit" className="btn btn-info">Register User</button>
                     </form>
                 </div>
             </div>

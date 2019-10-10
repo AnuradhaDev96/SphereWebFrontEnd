@@ -39,7 +39,7 @@ export default class ViewCart extends Component {
                     <h4 className="text-center">Cart Items of Purchase Request</h4>
                     <span className="badge badge-warning">{this.state.isSupplierItemsFound}</span>
                     <table className="table">
-                        <thead>
+                        <thead className="thead-dark">
                         <tr>
                             <th>Request Item Id</th>
                             <th>Request Id</th>
@@ -47,7 +47,7 @@ export default class ViewCart extends Component {
                             <th>Amount</th>
                             <th>Sub Total</th>
                             <th>Delivery Status</th>
-                            <th className="col-sm-12">Action</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>

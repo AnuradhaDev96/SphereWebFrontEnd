@@ -31,6 +31,7 @@ export default class OnePurchaseItem extends Component {
                 <td>{this.props.obj.status}</td>
                 <td>
                     <Link to={"/UpdateOrder/" + this.props.obj.id} className="btn btn-success" >View</Link>
+                    <span> </span>
                     <button onClick={this.delete} className="btn btn-danger">Delete</button>
                 </td>
             </tr>

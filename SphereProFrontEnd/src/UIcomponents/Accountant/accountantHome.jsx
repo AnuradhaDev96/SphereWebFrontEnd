@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
 import LoggedUserService from "../UserLogin/LoggedUserService";
+import NavigationBar from "../UserLogin/navigationBar";
 
 export default class AccountantHome extends Component {
     constructor(props) {
@@ -48,30 +49,43 @@ export default class AccountantHome extends Component {
     render() {
         return (
             <div>
-                <div className="card">
-                    <h2 className="text-center h1 mb-1">Sphere Procurement Management System</h2>
-                    <h3 className="text-center">Accountant Home Page</h3>
-                    <div className="card">
-                        <div className="row">
-                            <div className="col">
-                                <button type="submit" className="btn btn-primary">Create Purchase Order</button>
+                <NavigationBar/>
+                <div className="card bg-transparent">
+                    <h2 className="text-center h1 mb-1 text-white">Sphere Procurement Management System</h2>
+                    <h3 className="text-center text-white">Accountant Home Page</h3>
+                    <div className="card bg-transparent p-5">
+                        <div className="row p-3">
+                            <div className="col p-1">
+                                <Link to={"/DisplayRequestList"}>
+                                <button type="submit" className="btn btn-outline-info btn-lg">View Purchase Requests</button>
+                                </Link>
                             </div>
-                            <div className="col">
-                                <button type="submit" className="btn btn-primary">Make Payments for Deliveries</button>
+                            <div className="col p-1">
+                                <Link to={"/manageOrders"}>
+                                <button type="submit" className="btn btn-outline-info btn-lg">Manage Orders</button>
+                                </Link>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row p-3">
+                            <div className="col p-1">
+                                <button type="submit" className="btn btn-outline-info btn-lg">Reports</button>
+                            </div>
 
-                            http://localhost:3000/
-
-                            <div className="col">
+                            <div className="col p-1">
+                                <Link to={"/addPayments"}>
+                                <button type="submit" className="btn btn-outline-info btn-lg">Make Payments</button>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="row p-3">
+                            <div className="col p-1">
                                 <Link to={"/manageOrders"}>
-                                <button type="submit" className="btn btn-primary">View Payments</button>
+                                    <button type="submit" className="btn btn-outline-info btn-lg">Manage Suppliers</button>
                                 </Link>
                             </div>
 
-                            <div className="col">
-                                <button type="submit" className="btn btn-primary">View Payments</button>
+                            <div className="col p-1">
+                                <button type="submit" className="btn btn-outline-info btn-lg">Other Functions</button>
                             </div>
                         </div>
 

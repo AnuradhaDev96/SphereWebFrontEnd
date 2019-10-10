@@ -37,7 +37,7 @@ export default class OneInventoryItem extends Component {
 
     render() {
         return (
-            <tr key = {this.props.obj.itemId}>
+            <tr className="bg-light" key = {this.props.obj.itemId}>
                 <td>{this.props.obj.itemId}</td>
                 <td>{this.props.obj.name}</td>
                 <td>{this.props.obj.category}</td>

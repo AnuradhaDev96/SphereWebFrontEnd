@@ -63,21 +63,20 @@ export default class AddToCart extends Component {
     render() {
         return (
             <div>
-                <div className="card">
+                <div className="card bg-transparent p-5">
 
-                    <h1 className="text-center">Create Purchase Request</h1>
-                    <h4 className="text-center">Step 3 - Add Items to Purchase Request</h4>
-                    <div className="card p-3">
+                    <h1 className="text-center text-white">Create Purchase Request</h1>
+                    <h4 className="text-center text-white">Step 3 - Add Items to Purchase Request</h4>
+                    <div className="card p-3 bg-transparent">
                         <div className="row">
-                    <h5 className="col">Supplier Id <span className="badge badge-primary">{this.props.match.params.id}</span></h5>
-                    <h5 className="col">Purchase Request Id <span className="badge badge-primary">{this.props.match.params.reqId}</span></h5>
-                    <h5 className="col">Total <span className="badge badge-warning">{this.state.totalAmount}</span></h5>
-                    <h5 className="col">Status <span className="badge badge-dark">{this.state.requestStatus}</span></h5>
-                    <button type="button col" onClick={this.placeOrder} disabled={this.state.requestStatus !== 'NEW'} className="btn btn-info">Place Order</button>
-
+                    <h5 className="col text-white">Supplier Id <span className="badge badge-primary">{this.props.match.params.id}</span></h5>
+                    <h5 className="col text-white">Purchase Request Id <span className="badge badge-primary">{this.props.match.params.reqId}</span></h5>
+                    <h5 className="col text-white">Total <span className="badge badge-warning">{this.state.totalAmount}</span></h5>
+                    <h5 className="col text-white">Status <span className="badge badge-dark">{this.state.requestStatus}</span></h5>
+                    <button type="button" onClick={this.placeOrder} disabled={this.state.requestStatus !== 'NEW'} className="btn btn-info col btn-sm">Place Order</button>
+                            <span> </span>
                     <Link to={"/createPurchaseReq"}  >
-                        <span> </span>
-                        <button className="col btn btn-secondary" disabled={this.state.requestStatus === 'NEW'}>Create Purchase Request</button>
+                        <button className="btn btn-secondary col btn-lg" disabled={this.state.requestStatus === 'NEW'}>Create Purchase Request</button>
                     </Link>
                         </div>
                     </div>

@@ -14,14 +14,14 @@ export default class OneSupplierRow extends Component {
 
     render() {
         return (
-            <tr key = {this.props.obj.supplierId}>
+            <tr className="bg-light" key = {this.props.obj.supplierId}>
                 <td>{this.props.obj.supplierId}</td>
                 <td>{this.props.obj.name}</td>
                 <td>{this.props.obj.address}</td>
                 <td>{this.props.obj.contactNo}</td>
                 <td>{this.props.obj.email}</td>
                 <td>
-                    <Link to={"/addToCart/" + this.props.obj.supplierId + "/" + this.props.requestId} className="btn btn-info btn-sm" >Select Supplier</Link>
+                    <Link to={"/addToCart/" + this.props.obj.supplierId + "/" + this.props.requestId} className="btn btn-outline-info btn-sm" >Select Supplier</Link>
                 </td>
             </tr>
         );

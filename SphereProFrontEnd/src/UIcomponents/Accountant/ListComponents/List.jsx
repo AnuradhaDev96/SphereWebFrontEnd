@@ -29,18 +29,19 @@ export default class List extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="p-3">
                     <table className="table">
-                        <thead>
+                        <thead className="thead-dark">
                         <tr>
                             <th>Purchase Id</th>
                             <th>Request ID</th>
                             <th>Create By</th>
                             <th>Date</th>
                             <th>Status</th>
+                            <th>Manage</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="bg-light">
                         {this.listTableRow()}
                         </tbody>
                     </table>

@@ -10,7 +10,7 @@ export default class ManageSuppliers extends Component {
         return (
         <div>
             <div>
-                <h1>Suppliers</h1>
+                <h1 className="text-white text-center p-5">Suppliers</h1>
                 <SupplierList/>
             </div>
         </div>

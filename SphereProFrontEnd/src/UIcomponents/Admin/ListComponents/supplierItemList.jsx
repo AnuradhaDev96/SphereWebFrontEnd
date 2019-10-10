@@ -38,16 +38,16 @@ export default class SupplierItemList extends Component {
                 <div>
                     <span className="badge badge-warning">{this.state.isSupplierItemsFound}</span>
                     <table className="table table-sm ">
-                        <thead>
+                        <thead className="thead-dark">
                         <tr>
                             <th>Supplier Item Id</th>
                             <th>Supplier Id</th>
                             <th>Item Name</th>
                             <th>Unit Price</th>
-                            <th className="col-sm-12">Manage</th>
+                            <th>Manage</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="bg-light">
                         {this.listTableRow()}
                         </tbody>
                     </table>

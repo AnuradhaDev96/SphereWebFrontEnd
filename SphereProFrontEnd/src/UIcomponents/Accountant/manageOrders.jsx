@@ -10,7 +10,7 @@ export default class manageOrders extends Component {
         return (
             <div>
                 <div>
-                    <h1>Orders</h1>
+                    <h1 className="text-white text-center p-3">Orders</h1>
                     <List/>
                 </div>
             </div>

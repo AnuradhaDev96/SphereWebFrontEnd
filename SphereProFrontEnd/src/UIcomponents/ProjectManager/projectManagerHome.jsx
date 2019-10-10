@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
 import LoggedUserService from "../UserLogin/LoggedUserService";
+import NavigationBar from "../UserLogin/navigationBar";
 
 export default class ProjectManagerHome extends Component {
     constructor(props) {
@@ -48,26 +49,47 @@ export default class ProjectManagerHome extends Component {
     render() {
         return (
             <div>
-                <div className="card">
-                    <h2 className="text-center h1 mb-1">Sphere Procurement Management System</h2>
-                    <h3 className="text-center">Project Manager Home Page</h3>
-                    <div className="card">
-                        <div className="row">
-                            <div className="col">
-                                <button type="submit" className="btn btn-primary">View Need Approval Purchase Requests</button>
+                <NavigationBar/>
+                <div className="card bg-transparent">
+                    <h2 className="text-center h1 mb-1 text-white">Sphere Procurement Management System</h2>
+                    <h3 className="text-center text-white">Project Manager Home Page</h3>
+                    <div className="card bg-transparent p-5">
+                        <div className="row p-3">
+                            <div className="col p-1">
+                                <Link to={"/ManageRequest"}>
+                                <button type="submit" className="btn btn-outline-info btn-lg">Approval/Decline Purchase Requests</button>
+                                </Link>
                             </div>
-                            <div className="col">
-                                <button type="submit" className="btn btn-primary">Create Site Managers from Users</button>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                <Link to={"/siteManagers"}>
-                                <button type="submit" className="btn btn-primary">View Site Managers</button>
+                            <div className="col p-1">
+                                <Link to={"/addSiteManagers"}>
+                                <button type="submit" className="btn btn-outline-info btn-lg">Create Site Managers</button>
                                 </Link>
                             </div>
                         </div>
-
+                        <div className="row p-3">
+                            <div className="col p-1">
+                                <Link to={"/siteManagers"}>
+                                <button type="submit" className="btn btn-outline-info btn-lg">Manage Site Managers</button>
+                                </Link>
+                            </div>
+                            <div className="col p-1">
+                                <Link to={"/payments"}>
+                                    <button type="submit" className="btn btn-outline-info btn-lg">Purchase History</button>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="row p-3">
+                            <div className="col p-1">
+                                <Link to={"/suppliers"}>
+                                    <button type="submit" className="btn btn-outline-info btn-lg">Manage Suppliers</button>
+                                </Link>
+                            </div>
+                            <div className="col p-1">
+                                <Link to={"/manageOrders"}>
+                                    <button type="submit" className="btn btn-outline-info btn-lg">View Orders</button>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
 
 

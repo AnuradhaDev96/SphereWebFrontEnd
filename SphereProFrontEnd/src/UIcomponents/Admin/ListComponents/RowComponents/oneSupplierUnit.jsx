@@ -56,6 +56,7 @@ export default class OneSupplierItem extends Component {
                 <td>
                     {/*<Link to={"/editSupplier/" + this.props.obj.supplierId} className="btn btn-success btn-sm" >View Item</Link>*/}
                     <button className="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">View Item</button>
+                    <span> </span>
                     <button onClick={this.delete} className="btn btn-danger btn-sm">Delete Item</button>
                 </td>
 

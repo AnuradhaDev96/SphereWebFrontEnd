@@ -45,12 +45,12 @@ onSave(e){
         reqId: this.state.reqId,
         createBy: this.state.createBy,
         date: this.state.date,
-        status: this.state.status
+        status: 'OPEN'
     };
     axios.post('http://localhost:1218/db/order/addOrder', data, {headers: this.headers}).then(response => {
         if (response.data.statusCode === 200) {
             alert(response.data.message);
-            window.location.reload();
+            window.location.href = '/DisplayRequestList';
         } else {
             alert(response.data.message);
         }
@@ -62,12 +62,12 @@ onSave(e){
 render() {
         return (
             <div>
-                <div className="card">
-                    <h1 style={{color: 'black'}} align="center"> Add Purchase Orders </h1>
-                    <form className="border border-light p-5" onSubmit={this.onSave}>
-
+                <div className="card bg-transparent">
+                    <h1 className="text-white text-center"> Add Purchase Orders </h1>
+                    <span className="badge badge-primary text-center">Purchase Request {this.state.reqId} will be closed once you create a Purchase Order</span>
+                    <form className="p-5" onSubmit={this.onSave}>
                         <div className="form-group">
-                            <label htmlFor="id" className="">Purchase Id</label>
+                            <label htmlFor="id" className="text-white">Purchase Order Id</label>
                             <input id="id" className="form-control" type="text"
                                    aria-describedby="idHelp" maxLength="10" value={this.state.id}
                                    onChange={this.onChange} required={true} />
@@ -76,29 +76,25 @@ render() {
                             </small>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="reqId">Request ID</label>
+                            <label htmlFor="reqId" className="text-white">Request ID</label>
                             <input id="reqId" className="form-control" type="text"
                                    aria-describedby="reqIdHelp" maxLength="20" value={this.state.reqId}
-                                   onChange={this.onChange} required={true}/>
+                                   onChange={this.onChange} required={true} readOnly={true}/>
 
                         </div>
                         <div className="form-group">
-                            <label htmlFor="createBy">Created By</label>
+                            <label htmlFor="createBy" className="text-white">Created By</label>
                             <input id="createBy" className="form-control" type="text"
                                    maxLength="10"
                                    value={this.state.createBy} onChange={this.onChange} required={true}/>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group" className="text-white">
                             <label htmlFor="date">Date</label>
                             <input id="date" className="form-control" type="date" maxLength="25"
                                    value={this.state.date} onChange={this.onChange}/>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="status">Status</label>
-                            <input id="status" className="form-control" type="text" maxLength="25"
-                                   value={this.state.status} onChange={this.onChange} placeholder="Open,Close,In Progress"/>
-                        </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <br/>
+                        <button type="submit" className="btn btn-outline-primary">Create Purchase Order</button>
                     </form>
                 </div>
             </div>

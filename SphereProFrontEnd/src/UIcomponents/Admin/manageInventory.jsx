@@ -9,8 +9,8 @@ export default class ManageInventory extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <h1>Inventory</h1>
+                <div className="card bg-transparent p-5">
+                    <h1 className="text-white text-center">Inventory</h1>
                     <InventoryList/>
                 </div>
             </div>

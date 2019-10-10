@@ -28,6 +28,8 @@ import AddPayments from "./UIcomponents/Accountant/addPayments";
 import ManageRequest from "./UIcomponents/ProjectManager/ManageRequest";
 import ApproveRequestList from "./UIcomponents/ProjectManager/ApproveRequestList";
 import DisplayRequestList from "./UIcomponents/Accountant/DisplayRequestList";
+import UserRegistration from "./UIcomponents/UserLogin/UserRegistration";
+import NavigationBar from "./UIcomponents/UserLogin/navigationBar";
 
 class App extends Component {
     constructor(props) {
@@ -38,6 +40,7 @@ class App extends Component {
         return(
 
             <div>
+
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/" component={Home}/>
@@ -62,7 +65,7 @@ class App extends Component {
                         <Route path="/accountantHome" component={AccountantHome}/>
                         <Route path="/projectManagerHome" component={ProjectManagerHome}/>
                         <Route path="/siteManagerHome" component={SiteManagerHome}/>
-
+                        <Route path="/registerUser" component={UserRegistration}/>
 
                         {/*Umesh - Components*/}
                         <Route path="/siteManagers" component={ManageSiteManagers}/>

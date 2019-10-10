@@ -30,18 +30,19 @@ export default class PurchaseRequestList extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="p-3">
                     <table className="table">
-                        <thead>
+                        <thead className="thead-dark">
                         <tr>
                             <th>Request Id</th>
                             <th>Total Amount</th>
                             <th>Create By</th>
                             <th>Request Status</th>
                             <th>Delivery Date</th>
+                            <th>Create Order</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="bg-white">
                         {this.listTableRow()}
                         </tbody>
                     </table>

@@ -71,11 +71,11 @@ export default class UpdateOrder extends Component {
     render() {
         return (
             <div>
-                <div className="card">
-                    <form className="border border-light p-5" onSubmit={this.onSave}>
-                        <p className="text-center h1 mb-1">{this.state.id}</p>
+                <div className="card bg-transparent">
+                    <form className="p-5" onSubmit={this.onSave}>
+                        <p className="text-center h1 mb-1 text-white">{this.state.id}</p>
                         <div className="form-group">
-                            <label htmlFor="id" className="">Purchase Id</label>
+                            <label htmlFor="id" className="text-white">Purchase Id</label>
                             <input id="id" className="form-control" type="text" placeholder="SUP123"
                                    aria-describedby="idHelp" maxLength="10" value={this.state.id}
                                    onChange={this.onChange} required={true} readOnly={true}/>
@@ -84,29 +84,29 @@ export default class UpdateOrder extends Component {
                             </small>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="reqId">Request ID</label>
+                            <label htmlFor="reqId" className="text-white">Request ID</label>
                             <input id="reqId" className="form-control" type="text" placeholder="ABC Hardware"
                                    aria-describedby="reqIdHelp" maxLength="20" value={this.state.reqId}
                                    onChange={this.onChange} required={true}/>
 
                         </div>
                         <div className="form-group">
-                            <label htmlFor="createBy">Created By</label>
+                            <label htmlFor="createBy" className="text-white">Created By</label>
                             <input id="createBy" className="form-control" type="text" placeholder="XXXXXXXXXX"
                                    maxLength="10"
                                    value={this.state.createBy} onChange={this.onChange} required={true}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="date">Date</label>
+                            <label htmlFor="date" className="text-white">Date</label>
                             <input id="date" className="form-control" type="text" maxLength="25"
                                    value={this.state.date} onChange={this.onChange}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="status">Status</label>
+                            <label htmlFor="status" className="text-white">Status</label>
                             <input id="status" className="form-control" type="text" maxLength="25"
                                    value={this.state.status} onChange={this.onChange}/>
                         </div>
-                        <button type="submit" className="btn btn-primary">Update</button>
+                        <button type="submit" className="btn btn-outline-primary">Update</button>
                     </form>
                 </div>
             </div>

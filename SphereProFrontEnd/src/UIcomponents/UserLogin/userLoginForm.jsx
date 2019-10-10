@@ -48,17 +48,17 @@ export default class UserLoginForm extends Component {
     render() {
         return (
             <div>
-                <div className="card">
+                <div className="card bg-transparent">
                     <form className="border border-light p-5" onSubmit={this.onLogin}>
-                        <h2 className="text-center h1 mb-1">Sphere Procurement Management System</h2>
-                        <h3 className="text-center">Login</h3>
+                        <h2 className="text-center h1 mb-1 text-white">Sphere Procurement Management System</h2>
+                        <h3 className="text-center text-white">Login</h3>
                         <div className="form-group">
-                            <label htmlFor="username" className="">Username</label>
+                            <label htmlFor="username" className="text-white">Username</label>
                             <input id="username" className="form-control" type="text" placeholder="username"
                                    maxLength="10" value={this.state.username} onChange={this.onChange}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password" className="text-white">Password</label>
                             <input id="password" className="form-control" type="text" placeholder="password"
                                     value={this.state.password} onChange={this.onChange}/>
                         </div>

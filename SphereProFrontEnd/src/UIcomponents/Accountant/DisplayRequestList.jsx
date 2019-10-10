@@ -11,7 +11,7 @@ export default class DisplayRequestList extends Component {
         return (
             <div>
                 <div>
-                    <h1>Purchase Requests</h1>
+                    <h2 className="text-center text-white p-3">Create Purchase Order for Purchase Request</h2>
                     <PurchaseRequestList/>
                 </div>
             </div>
